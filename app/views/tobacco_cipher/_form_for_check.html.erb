@@ -1,0 +1,26 @@
+<div class="form_for_check">
+  <center>
+    <div class="agileits_w3layouts_banner_info">
+        <h2>Проверить табак на оригинальность</h2>
+        <h3>Здесь вы можете проверить, оригинальный табак или же вы приобрели некачественную подделку</h3>
+        <div class="row">
+        <%= form_for :cipher, url: { action: 'check_cipher', controller: 'tobacco_cipher' }, remote: true do |f| %>
+          <%= f.text_field :cipher, required: true, placeholder: 'введите код',  value: '' %>
+          <%= f.submit 'Проверить' %>
+        <% end %>
+      </div>
+    </div>
+  </center><br><br><br>
+  <center>
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% if flash[:error] %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+  </center>
+</div>
